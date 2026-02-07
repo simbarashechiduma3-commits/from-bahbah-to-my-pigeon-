@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine Angie ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff5f9e, #ff8acb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 35px 25px;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 1.3s ease;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 2.1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 12px 22px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .yes {
+      background: #ff3366;
+      color: white;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+    }
+
+    .no {
+      background: white;
+      color: #ff3366;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear forwards;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIRST CARD -->
+  <div class="box" id="question">
+    <h1>Hey Angie ❤️</h1>
+    <p>
+      After that math lesson today, I couldn’t stop smiling.
+      You make even numbers and formulas feel a little sweeter.
+    </p>
+
+    <p>
+      From your boyfriend, <strong>Bahbah</strong> 🫶🏽  
+      I just have one important question…
+    </p>
+
+    <h2>Will you be my Valentine? 💌</h2>
+
+    <div class="btns">
+      <button class="yes" onclick="yesClicked()">Yes 💖</button>
+      <button class="no" onclick="moveNo()">No 😅</button>
+    </div>
+  </div>
+
+  <!-- YES CARD -->
+  <div class="box hidden" id="answer">
+    <h1>🥹❤️❤️❤️</h1>
+    <p>
+      obviously un=bungasoze uyale so since u agreed i guess this will be the best
+      valentines of ur life bby 😌
+    </p>
+    <p>
+      trust me i may not be perfect but i will try on that day  
+      love u ❤️
+    </p>
+    <p><strong>from simba 🐾</strong></p>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.getElementById("question").classList.add("hidden");
+      document.getElementById("answer").classList.remove("hidden");
+      hearts();
+    }
+
+    function moveNo() {
+      const btn = document.querySelector(".no");
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function hearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 25 + 15 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
